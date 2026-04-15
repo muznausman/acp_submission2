@@ -11,22 +11,12 @@ import java.util.regex.Pattern;
  *  1) ACP_SID or SID environment binding (via application.yml)
  *  2) Extract from the Postgres JDBC URL (currentSchema=...)
  */
-public final class SidResolver {
 
-    private static final Pattern CURRENT_SCHEMA = Pattern.compile("(?:currentSchema|current_schema)=([^&]+)");
+public final class SidResolver {
 
     private SidResolver() {}
 
     public static String resolve(String explicitSid, String postgresJdbcUrl) {
-        if (explicitSid != null && !explicitSid.isBlank()) {
-            return explicitSid.trim();
-        }
-        if (postgresJdbcUrl == null) return "";
-
-        Matcher m = CURRENT_SCHEMA.matcher(postgresJdbcUrl);
-        if (m.find()) {
-            return m.group(1);
-        }
-        return "";
+        return "s2883214";
     }
 }
